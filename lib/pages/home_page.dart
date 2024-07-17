@@ -1,4 +1,5 @@
 import 'package:coffee_shop/const.dart';
+import 'package:coffee_shop/pages/shop_page.dart';
 import 'package:flutter/material.dart';
 
 import '../components/bottom_nav_bar.dart';
@@ -114,7 +115,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: CoffeeTile(),
+      body: ShopPage(),
     );
   }
 }
