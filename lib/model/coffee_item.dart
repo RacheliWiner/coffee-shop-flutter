@@ -42,6 +42,10 @@ class CoffeeItem extends ChangeNotifier {
     notifyListeners();
   }
 
+  // int totalQuantity(){
+  //   return Provider.of<CoffeeItem>(context, listen: false).totalQuantity();
+  // }
+
   void clearCart() {
     _userCart.clear();
     notifyListeners();

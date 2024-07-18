@@ -11,6 +11,10 @@ class CartTile extends StatelessWidget {
     required this.onPressed,
   });
 
+  double calculateTotal(Coffee coffee) {
+    return coffee.price * coffee.quantity;
+  }
+
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -28,9 +32,18 @@ class CartTile extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        subtitle: Text('\$${coffee.price}'),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Quantity: ${coffee.quantity}'),
+            Text('Total: \$${calculateTotal(coffee)}'),
+          ],
+        ),
         trailing: IconButton(
-          icon: Icon(Icons.delete, color: Colors.brown[300],),
+          icon: Icon(
+            Icons.delete,
+            color: Colors.brown[300],
+          ),
           onPressed: onPressed,
         ),
       ),
