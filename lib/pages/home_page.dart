@@ -1,4 +1,5 @@
 import 'package:coffee_shop/const.dart';
+import 'package:coffee_shop/pages/cart_page.dart';
 import 'package:coffee_shop/pages/shop_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,11 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
+
+  final List _pages = [
+    ShopPage(),
+    CartPage(),
+  ];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 25,bottom: 25),
+                padding: EdgeInsets.only(left: 25, bottom: 25),
                 child: ListTile(
                   leading: Icon(Icons.exit_to_app),
                   title: Text("Logout"),
@@ -115,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: ShopPage(),
+      body: _pages[_selectedIndex],
     );
   }
 }
